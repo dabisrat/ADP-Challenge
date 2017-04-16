@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-welcome',
   template: `
-    <p>
+    <h1>
       Welcome!
-    </p>
+    </h1>
   `,
   styles: []
 })
@@ -17,4 +17,3 @@ export class WelcomeComponent implements OnInit {
   }
 
 }
-// the default route should render this template.

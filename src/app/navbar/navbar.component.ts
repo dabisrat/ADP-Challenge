@@ -1,20 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpMethodsService } from './../http-methods.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
-  template: `
+  template: `  
     <ul class="navBar">
       <li> <a href=""> Welcome</a> </li>
-      <li> <a href=""> Product List</a> </li>
-    <ul>
+      <li> <a href="products"> Product List</a> </li>
+    </ul>
   `,
-  styles: []
+  styles: [`
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+}
+
+li a:hover {
+    background-color: #111;
+    font-weight: bold;
+}
+  `]
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  @Input() products;
+  constructor( private httpMethods: HttpMethodsService ) { }
 
   ngOnInit() {
+  }
+  onClick(): void {
+    console.log();
   }
 
 }

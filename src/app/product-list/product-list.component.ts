@@ -1,21 +1,27 @@
+import { HttpMethodsService } from './../http-methods.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
   template: `
-    <p>
-      product-list Works!
-    </p>
+  <ul>
+    <li *ngFor=" let product of httpMethods.getProducts()"> 
+    <div>
+      <a href="prod">{{product.name}}</a>
+      <button (click)="httpMethods.deleteProdut(product)">X</button>
+    </div>
+    </li>
+  </ul>
   `,
   styles: []
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpMethods: HttpMethodsService) { 
+  }
 
   ngOnInit() {
   }
 
 }
 
-// I need to accesss a service method that does a GET request to retrive the data. bind it to the components model, loop throught the array, and display the product names with something similar to ng-repeat. Each anchor element would route to a prodcut page template with product data dynamicly generated.

@@ -17,6 +17,3 @@ export class ProductPageComponent implements OnInit {
   }
 
 }
-
-
-// this component needs access to the JSON Data of the product that was clicked  and render the template with the correct data.

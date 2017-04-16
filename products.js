@@ -1,5 +1,5 @@
-{
-  "products": {
+
+let products = `{
     "product": [
       {
         "id": "1",
@@ -17,5 +17,9 @@
         "description": "Product 3 description"
       }
     ]
-  }
-}
+}`;
+
+products = JSON.parse(products);
+
+export {products};
+
