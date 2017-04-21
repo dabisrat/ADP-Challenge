@@ -1,0 +1,5 @@
+
+  <div *ngFor="let product of products" (click)="selectProduct(product)">
+    <span class="badge">{{ product.id }}</span> {{ product.name }}
+  </div>
+
