@@ -21,10 +21,10 @@ export class ProductListComponent implements OnInit {
                        .catch(error => console.error(error));
   }
 
-  deleteProduct(event: Event, product: Product){
+  deleteProduct(event: Event, product: Product) {
     event.stopPropagation();
     this.productService.deleteProduct(product.id)
-                       .then(() => this.getProducts )
+                       .then(() => this.products = this.products.filter( currentProduct => currentProduct !== product ) )
                        .catch(error => console.error(error));
   }
 
