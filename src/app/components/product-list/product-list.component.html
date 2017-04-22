@@ -1,5 +1,10 @@
 
   <div *ngFor="let product of products" (click)="selectProduct(product)">
-    <span class="badge">{{ product.id }}</span> {{ product.name }}
+    <h3>Product Name</h3>
+    <p>{{product.name}}</p>
+    <h3> Product Description</h3>
+    <p>{{product.description}}</p>
+    <button (click)="deleteProduct($event, product)">Delete Product</button>
   </div>
+    <button>Add Product</button>
 
