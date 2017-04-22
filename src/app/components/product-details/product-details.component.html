@@ -1,7 +1,14 @@
-<p>
-  {{selectedProduct?.name}} 
-  <br>
-  {{selectedProduct?.id}}
-  <br>
-  {{selectedProduct?.description}}
-</p>
+<div *ngIf="selectedProduct"> 
+  <form novalidate #editForm="ngForm">
+    
+    <label>Product Name</label>
+    <input required type="text" name="product-name" [(ngModel)]="selectedProduct.name" placeholder="Enter product name">
+    
+    <label>Product Description</label>
+    <input required type="text" name="product-description" [(ngModel)]="selectedProduct.description" placeholder="Enter product description">
+
+  </form>
+    <button type="submit" (click)="updateProduct(selectedProduct)">Update</button>
+    <button type="submit" (click)="goToProducts()">Back</button>
+</div>
+

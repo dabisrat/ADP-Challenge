@@ -1,7 +1,7 @@
 import { Product } from './../../interfaces/product-model';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -11,24 +11,36 @@ import { Params, ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 // product: Product;
 selectedProduct;
-testProducts: any = [
-  {id: 1, name: 'product1', description: 'a good product for you'},
-  {id: 2, name: 'product2', description: 'a good product for you'},
-  {id: 3, name: 'product3', description: 'a good product for you'},
-];
-  constructor( private route: ActivatedRoute, private productService: ProductService) { }
+  constructor( private router: Router, private route: ActivatedRoute, private productService: ProductService) { 
+    this.goToProducts = this.goToProducts.bind(this);
+    this.setSelectedProduct = this.setSelectedProduct.bind(this)
+  }
 
   ngOnInit() {
     this.route.params.subscribe( (params: Params) => {
-      const id = Number(params.id);
-      const matchingProduct = this.testProducts.find( product => product.id === id);
-      if (matchingProduct) {
-        this.selectedProduct = matchingProduct;
-      } else {
-        this.selectedProduct = {name: 'non-existante', description: 'void of all meaning'};
-      }
+      this.productService.getProdutById(params.id)
+                         .then(this.setSelectedProduct)
+                         .catch(error => console.error(error));
     });
   }
 
+  setSelectedProduct(product: Product): void {
+    if (product) {
+      this.selectedProduct = Object.assign({}, product);
+    } else {
+      //route to 404 page;
+      this.selectedProduct = undefined;
+   }
+  }
+
+  goToProducts() {
+    this.router.navigate(['products']);
+  }
+
+  updateProduct(product: Product) {
+    this.productService.updateProduct(product)
+                       .then(this.goToProducts)
+                       .catch(error => console.error(error));
+  }
 
 }
