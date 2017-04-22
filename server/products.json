@@ -11,9 +11,49 @@
       "description": "Product 2 description"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Product 3",
       "description": "Product 3 description"
+    },
+    {
+      "id": 4,
+      "name": "product 4",
+      "description": "product 4 description"
+    },
+    {
+      "id": 5,
+      "name": "4",
+      "description": "4"
+    },
+    {
+      "id": 6,
+      "name": "5",
+      "description": "5"
+    },
+    {
+      "id": 7,
+      "name": "6",
+      "description": "6"
+    },
+    {
+      "id": 8,
+      "name": "7",
+      "description": "7"
+    },
+    {
+      "id": 9,
+      "name": "8",
+      "description": "8"
+    },
+    {
+      "id": 10,
+      "name": "9",
+      "description": "9"
+    },
+    {
+      "id": 11,
+      "name": "10",
+      "description": "10"
     }
   ]
 }
