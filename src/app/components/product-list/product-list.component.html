@@ -2,9 +2,9 @@
 
     <!--product list-->
     <div class="sub-container-1">   
-      <div class="product-in-list" *ngFor="let product of products" (click)="selectProduct(product)">
+      <div class="product-in-list" *ngFor="let product of (products | limitTo:10)" (click)="selectProduct(product)">
         <h3>Product Name</h3>
-        <p>{{product.name}}</p>
+        <p>{{product.name | uppercase}}</p>
         <h3> Product Description</h3>
         <p>{{product.description}}</p>
         <button type="button" (click)="deleteProduct($event, product)">Delete Product</button>

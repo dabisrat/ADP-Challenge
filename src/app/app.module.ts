@@ -9,6 +9,7 @@ import { ProductListComponent, ProductDetailsComponent, WelcomComponent } from '
 
 
 import { ProductService, WowMountsService } from './services';
+import { LimitToPipe } from './pipes';
 
 
 const routes: Route[] = [
@@ -19,7 +20,7 @@ const routes: Route[] = [
  {path: 'products', component: ProductListComponent},
  {path: 'products/:id', component: ProductDetailsComponent},
  {path: 'wow-mounts', component: ProductListComponent},
- // {path: '**', redirectTo: ''}
+ {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
@@ -28,6 +29,7 @@ const routes: Route[] = [
     ProductListComponent,
     ProductDetailsComponent,
     WelcomComponent,
+    LimitToPipe,
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,6 @@ import { Params, ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-// product: Product;
 selectedProduct;
   constructor( private router: Router, private route: ActivatedRoute, private productService: ProductService) { 
     this.goToProducts = this.goToProducts.bind(this);
@@ -28,7 +27,7 @@ selectedProduct;
     if (product) {
       this.selectedProduct = Object.assign({}, product);
     } else {
-      //route to 404 page;
+      // TODO route to 404 page;
       this.selectedProduct = undefined;
    }
   }

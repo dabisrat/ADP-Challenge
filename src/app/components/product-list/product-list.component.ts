@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
     const newProduct = Object.assign({}, {id: id}, {name: this.newProductName, description: this.newProductDescription});
     this.productService.addProduct(newProduct)
                        .then( () => this.newProductDescription = this.newProductName = '')
-                       .then( () => this.products.push(newProduct) )
+                       .then( () => this.products = this.products.concat(newProduct) )
                        .catch(error => console.error);
   }
   updateProduct(product: Product) {
