@@ -12,7 +12,6 @@ import { Component, Inject } from '@angular/core';
 export class AppComponent {
   title = 'Playground!';
   routes = [
-    {route: 'welcome'},
     {route: 'products'},
     {route: 'wow-mounts'}
     ];
