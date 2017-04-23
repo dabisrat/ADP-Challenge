@@ -1,14 +1,34 @@
-<div *ngIf="selectedProduct"> 
-  <form novalidate #editForm="ngForm">
-    
-    <label>Product Name</label>
-    <input required type="text" name="product-name" [(ngModel)]="selectedProduct.name" placeholder="Enter product name">
-    
-    <label>Product Description</label>
-    <input required type="text" name="product-description" [(ngModel)]="selectedProduct.description" placeholder="Enter product description">
-
-  </form>
-    <button type="submit" (click)="updateProduct(selectedProduct)">Update</button>
-    <button type="submit" (click)="goToProducts()">Back</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default panel-body" *ngIf="selectedProduct"> 
+        <form novalidate #editForm="ngForm">
+          <div class="form-group">
+            <label for="edit-name">Product Name:</label>
+            <input class="form-control" 
+                   id="edit-name"
+                   type="text" 
+                   name="product-name" 
+                   [(ngModel)]="selectedProduct.name"
+                   placeholder="Enter product name">
+          </div>
+          <div class="form-group">
+            <label for="edit-description">Product Description:</label>
+            <input id="edit-description"
+                   class="form-control"
+                   type="text" 
+                   name="product-description" 
+                   [(ngModel)]="selectedProduct.description" 
+                   placeholder="Enter product description">
+          </div>
+        </form>
+          <button class="btn btn-primary" type="submit" (click)="updateProduct(selectedProduct)">Update</button>
+          <button class="btn btn-primary" type="submit" (click)="goToProducts()">Cancel</button>
+      </div>
+    </div> 
+  </div>
 </div>
 
+
+
+  

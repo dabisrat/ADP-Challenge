@@ -44,9 +44,6 @@ export class ProductListComponent implements OnInit {
                        .then( () => this.products = this.products.concat(newProduct) )
                        .catch(error => console.error);
   }
-  updateProduct(product: Product) {
-
-  }
 
   toggleState(event: Event) {
     this.isCreating = !this.isCreating;

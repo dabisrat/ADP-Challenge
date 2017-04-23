@@ -1,14 +1,19 @@
-.main-container{
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-start;
+.ng-invalid:not(form) {
+    border: 1px solid red;
+}
+.ng-valid:not(form) {
+    border: 1px solid green;
 }
 
-.sub-container-1{
-  display:flex;
-  flex-direction:column;
+.btn-add-product {
+    position:fixed;
+    margin-bottom: 20px;
+    bottom:0;
+    left:50%;
 }
-.product-in-list {
-  border: black 1px solid;
-}
+ .create-form{
+     position:fixed;
+ }
+
+
 
