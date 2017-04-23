@@ -3,7 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
-const baseUrl  = `http://localhost:3000/product/`;
+const baseUrl  = `https://localhost:3000/product/`;
 const headers = new Headers({ 'Content-Type': 'application/json' });
 const options = new RequestOptions({ headers: headers });
 
