@@ -1,2 +1,2 @@
 export { WowMountsService } from './wow-mounts.service';
-export { ProductService } from './product.service';
+export { PostService } from './post.service';

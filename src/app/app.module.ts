@@ -5,10 +5,10 @@ import { HttpModule } from '@angular/http';
 import {Route, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent, ProductDetailsComponent, WelcomComponent } from './components';
+import { PostListComponent, PostDetailsComponent, WelcomComponent } from './components';
 
 
-import { ProductService, WowMountsService } from './services';
+import { PostService, WowMountsService } from './services';
 import { LimitToPipe } from './pipes';
 
 
@@ -17,17 +17,17 @@ const routes: Route[] = [
  // TO DO add 404 component for wild card  route.
  {path: '', component: WelcomComponent},
  {path: 'welcome', redirectTo: '' },
- {path: 'products', component: ProductListComponent},
- {path: 'products/:id', component: ProductDetailsComponent},
- {path: 'wow-mounts', component: ProductListComponent},
+ {path: 'posts', component: PostListComponent},
+ {path: 'posts/:id', component: PostDetailsComponent},
+ {path: 'wow-mounts', component: PostListComponent},
  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductDetailsComponent,
+    PostListComponent,
+    PostDetailsComponent,
     WelcomComponent,
     LimitToPipe,
   ],
@@ -37,7 +37,7 @@ const routes: Route[] = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductService, WowMountsService],
+  providers: [PostService, WowMountsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@ import { Component, Inject } from '@angular/core';
 export class AppComponent {
   title = 'Playground!';
   routes = [
-    {route: 'products'},
+    {route: 'posts'},
     {route: 'wow-mounts'}
     ];
   constructor( ) {}

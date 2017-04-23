@@ -1,1 +1,1 @@
-export { Product } from './product-model';
+export { Post } from './post-model';
