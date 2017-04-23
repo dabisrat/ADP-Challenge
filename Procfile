@@ -1,1 +1,1 @@
-web: git  ng build
+web: ng build
