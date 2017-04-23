@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"npm run server\" \"node server/server.js\"",
+    "start": "concurrently \"node server.js\" \"npm run server\"",
     "server": "json-server --watch server/products.json",
     "postinstall": "ng build --aot -prod",
     "build": "ng build",
@@ -28,6 +28,7 @@
     "core-js": "^2.4.1",
     "express": "^4.15.2",
     "json-server": "^0.9.6",
+    "path": "^0.12.7",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
