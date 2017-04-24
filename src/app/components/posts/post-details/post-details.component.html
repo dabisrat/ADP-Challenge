@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="panel panel-default panel-body" *ngIf="selectedPost"> 
+        <h4> Editing Post #{{selectedPost.id}} </h4>
         <form novalidate #editForm="ngForm">
           <div class="form-group">
-            <label for="edit-name">Post Title:</label>
+            <label for="edit-name"> Edit Title:</label>
             <input class="form-control" 
                    id="edit-name"
                    type="text" 
@@ -13,13 +14,14 @@
                    placeholder="Enter post title">
           </div>
           <div class="form-group">
-            <label for="edit-description">Post Body:</label>
-            <input id="edit-description"
+            <label for="edit-description">Edit Body:</label>
+            <textarea rows="15" cols="10" id="edit-description"
                    class="form-control"
                    type="text" 
                    name="post-description" 
                    [(ngModel)]="selectedPost.body" 
                    placeholder="Enter post body">
+              </textarea>
           </div>
         </form>
           <button class="btn btn-primary" type="submit" (click)="updatePost(selectedPost)">Update</button>

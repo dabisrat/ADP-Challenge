@@ -1,3 +1,5 @@
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -5,22 +7,21 @@ import { HttpModule } from '@angular/http';
 import {Route, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PostListComponent, PostDetailsComponent, WelcomComponent } from './components';
+import { PostsComponent, PostListComponent, PostDetailsComponent } from './components';
 
 
 import { PostService, WowMountsService } from './services';
 import { LimitToPipe } from './pipes';
 
 
-const routes: Route[] = [
 
- // TO DO add 404 component for wild card  route.
- {path: '', component: WelcomComponent},
- {path: 'welcome', redirectTo: '' },
- {path: 'posts', component: PostListComponent},
- {path: 'posts/:id', component: PostDetailsComponent},
- {path: 'wow-mounts', component: PostListComponent},
- {path: '**', redirectTo: ''}
+const routes: Route[] = [
+ {path: '', redirectTo: 'posts', pathMatch: 'full'},
+ {path: 'posts', component: PostsComponent, children: [
+  //  {path: 'posts', component: PostListComponent},
+   {path: 'details/:id', component: PostDetailsComponent},
+ ]},
+// {path: '**', redirectTo: 'posts'}
 ];
 
 @NgModule({
@@ -28,8 +29,8 @@ const routes: Route[] = [
     AppComponent,
     PostListComponent,
     PostDetailsComponent,
-    WelcomComponent,
     LimitToPipe,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

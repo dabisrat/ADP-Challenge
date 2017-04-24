@@ -1,7 +1,10 @@
 import { Post } from './../interfaces/post-model';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
+
 
 const baseUrl  = `https://jsonplaceholder.typicode.com/posts/`;
 const headers = new Headers({ 'Content-Type': 'application/json' });
@@ -9,18 +12,18 @@ const options = new RequestOptions({ headers: headers });
 
 @Injectable()
 export class PostService {
+  private emitChangeSource = new Subject();
+  changeEmitted = this.emitChangeSource.asObservable();
+
   storage: Post[];
   constructor(private http: Http) {
-    console.log('when this runs');
     this.processData = this.processData.bind(this);
-    this.getInitalData();
   }
 
   getInitalData() {
     return this.http.get(baseUrl)
                     .toPromise()
                     .then( this.processData )
-                    .then( () => console.log(this.storage))
                     .catch( this.handelError );
   }
 
@@ -34,21 +37,28 @@ export class PostService {
   }
 
   deletePost(postId: number): Post[] {
-   return this.storage.filter( post => postId !== post.id );
-  }
-
-  updatePost(post: Post): Post[] {
-    return this.storage.splice(post.id, 0, post);
-}
-
-  addPost(post: Post): Post[] {
-    this.storage.unshift(post);
+    this.storage = this.storage.filter( post => postId !== post.id );
     return this.storage;
   }
 
-  processData(res: Response): Post[] {
+  updatePost(post: Post): Post[] {
+    const index = this.storage.reduce( (memo, item, i) => post.id === item.id ? i : memo, -1);
+    this.storage[index] = post;
+    return this.storage;
+}
+
+  addPost(post: Post): Post[] {
+     this.storage = [post].concat(this.storage);
+     return this.storage;
+  }
+
+  processData(res: Response) {
     this.storage = res.json();
     return res.json();
+  }
+
+  emitChange(change: any) {
+    this.emitChangeSource.next(change);
   }
 
   handelError(err: Response): void {

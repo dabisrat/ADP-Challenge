@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'Playground!';
   routes = [
     {route: 'posts'},
-    {route: 'wow-mounts'}
     ];
   constructor( ) {}
 }

@@ -1,0 +1,13 @@
+<!--
+<h1>PostListComponent</h1>
+-->
+ <router-outlet></router-outlet>
+  <app-post-list [posts]="posts"
+                 [visable] ="visable"
+                 (deleted)="deletePost($event)"
+                 (added)="addPost($event)"
+                 (selected)="selectPost($event)"
+                 (updated)="updatePost($event)"
+>             
+</app-post-list>
+

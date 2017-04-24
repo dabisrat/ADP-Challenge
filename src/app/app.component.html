@@ -9,13 +9,13 @@
       <a class="navbar-brand" routerLink="welcome"> Angular Play Ground!</a>
     </div>
      <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav nav-pills navbar-right">
+      <ul class="nav nav-pills navbar-left">
         <li  *ngFor="let link of routes"><a [routerLink]="link.route">{{link.route}}</a> </li>
       </ul>
      </div>
   </div>
 </nav>
   <router-outlet></router-outlet>
-<footer></footer>
+
 
 
