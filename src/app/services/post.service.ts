@@ -53,7 +53,7 @@ export class PostService {
   }
 
   processData(res: Response) {
-    this.storage = res.json();
+    this.storage = res.json().slice(0, 20);
     return res.json();
   }
 
